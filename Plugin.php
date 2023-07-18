@@ -41,7 +41,7 @@ class Plugin extends PluginBase
 
             // Process as late in the filter collection as possible to optimize the finished product
             Event::listen('system.resizer.afterResize', function ($resizer, $tempPath) {
-                $supportedExtensions = ['jpg', 'jpeg', 'png'];
+                $supportedExtensions = ['jpg', 'jpeg', 'png', 'webp'];
                 if (in_array(pathinfo($tempPath, PATHINFO_EXTENSION), $supportedExtensions)) {
                     try {
                         $source = Source::fromFile($tempPath);
